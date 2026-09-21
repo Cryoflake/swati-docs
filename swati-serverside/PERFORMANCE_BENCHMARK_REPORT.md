@@ -83,9 +83,3 @@ Load testing on an 8-vCPU / 16GB RAM production configuration yielded the follow
 - **Database Connection Pool**: Utilized an average of 18 / 100 connections; MongoDB query execution times averaged 4.2ms.
 
 ---
-
-## 6. Optimization Recommendations for Scale (Next Phase)
-
-1. **CDN Edge Caching for Ephemeral Watermarks**: Cache watermarked tile SVGs at Cloudflare Workers edge for repeat page reads within the same active session token window.
-2. **Elasticsearch Index Warmers**: Run index warmers nightly to pre-populate edge-ngram field data caches for top 500 search terms.
-3. **HTTP/3 QUIC Ingress**: Enable HTTP/3 in Nginx for lower handshake latency on lossy mobile networks across rural readers.
