@@ -1,7 +1,6 @@
 # Performance Benchmark Report
 **Digital Publication Management Platform — Swathi Publications**
 
-- **Assessment Date**: September 20, 2026
 - **Test Harness**: k6, autocannon, Lighthouse CI, Chrome DevTools Performance Profiler
 - **Target Workload**: 500 Concurrent Virtual Users (VUs) | 1,200 requests/sec sustained
 - **Overall Result**: **EXCEEDS PERFORMANCE BUDGETS (Score: 9.9 / 10)**
