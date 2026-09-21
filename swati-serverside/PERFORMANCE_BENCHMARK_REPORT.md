@@ -14,14 +14,14 @@ Comprehensive load and micro-benchmarking were executed across the unified stack
 
 ### Primary Benchmark Scorecard
 
-| Performance Metric | Budget Target | Measured (p50) | Measured (p95) | Measured (p99) | Status |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| **DRM Token Negotiation** | $\le 10\text{ms}$ | **1.2 ms** | **3.8 ms** | **6.1 ms** | **EXCEEDS BUDGET** |
-| **Byte-Range PDF Stream (TTFB)** | $\le 80\text{ms}$ | **24 ms** | **42 ms** | **78 ms** | **EXCEEDS BUDGET** |
-| **Full-Text Catalog Search** | $\le 150\text{ms}$ | **28 ms** | **74 ms** | **112 ms** | **EXCEEDS BUDGET** |
-| **Editorial Workflow Transition** | $\le 50\text{ms}$ | **6.5 ms** | **14.2 ms** | **26.0 ms** | **EXCEEDS BUDGET** |
-| **Multi-Entity Version Diffing** | $\le 25\text{ms}$ | **3.1 ms** | **8.4 ms** | **14.5 ms** | **EXCEEDS BUDGET** |
-| **Global API Average** | $\le 120\text{ms}$ | **16.5 ms** | **45.0 ms** | **82.3 ms** | **EXCEEDS BUDGET** |
+| Performance Metric | Budget Target | Measured (p50) | Measured (p95) | Measured (p99) |
+| :--- | :---: | :---: | :---: | :---: |
+| **DRM Token Negotiation** | $\le 10\text{ms}$ | **1.2 ms** | **3.8 ms** | **6.1 ms** |
+| **Byte-Range PDF Stream (TTFB)** | $\le 80\text{ms}$ | **24 ms** | **42 ms** | **78 ms** |
+| **Full-Text Catalog Search** | $\le 150\text{ms}$ | **28 ms** | **74 ms** | **112 ms** | 
+| **Editorial Workflow Transition** | $\le 50\text{ms}$ | **6.5 ms** | **14.2 ms** | **26.0 ms** | 
+| **Multi-Entity Version Diffing** | $\le 25\text{ms}$ | **3.1 ms** | **8.4 ms** | **14.5 ms** |
+| **Global API Average** | $\le 120\text{ms}$ | **16.5 ms** | **45.0 ms** | **82.3 ms** | 
 
 ---
 
