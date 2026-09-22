@@ -328,7 +328,6 @@ While the backend architecture and business logic are comprehensive and mature, 
 | **Live Payment Gateways** | P0 (Critical) | **35%** | ⏳ Simulated | Implement concrete Razorpay and Stripe drivers in `paymentProviderFactory.ts` |
 | **SMS Gateway for Phone OTP** | P0 (Critical) | **20%** | ⏳ In-Memory | Connect external SMS service (Twilio/MSG91) in `OTPService.ts` |
 | **Cloud Infrastructure & Secrets** | P1 (High) | **20%** | ⏳ Local Config | Provision MongoDB replica set (`rs0`), Redis cluster and Elasticsearch ILM |
-| **TypeScript Strict Compilation** | P0 (Critical) | **15%** | ⚠️ 61 Errors | Add `@opentelemetry` deps to `package.json` and fix 5 implicit `any` annotations |
 | **Enforce 2FA on Login Route** | P0 (Critical) | **10%** | ⏳ Commented Out | Re-enable MFA verification challenge inside `authController.login` |
 
 ```mermaid
@@ -379,15 +378,6 @@ flowchart LR
   While the endpoints for enabling, disabling, and generating backup codes exist, users with 2FA enabled are currently logged in directly without being challenged for their second factor.
 * **Required Implementation**:
   - Uncomment and enforce the two-step challenge: If `user.twoFactorEnabled` is true, issue a temporary `mfaPendingToken` (valid for 5 minutes) and require the client to submit TOTP/backup code to `/api/v1/auth/mfa/verify` before issuing final access and refresh cookies.
-
-#### 4. TypeScript Strict Compilation & Missing NPM Packages
-* **Current State**: Running `npm run build` (`tsc`) fails with 61 errors across 24 files due to:
-  1. Missing dependencies in `backend/package.json`: `@opentelemetry/resources`, `@opentelemetry/semantic-conventions`, and local out-of-sync `node_modules` for `winston-daily-rotate-file`, `natural`, `otplib`, `exceljs`, `pdfkit`, `csv-writer`, `prom-client`.
-  2. Strict TypeScript parameter types: Missing explicit type annotations in `TextRankService.ts` (`parameter 's' implicitly has an 'any' type`), `NlpService.ts`, and `SearchWorker.ts`.
-  3. Winston transport type mismatch: `winston.transports.DailyRotateFile` expects explicit type import.
-* **Required Implementation**:
-  - Run `npm install` for missing packages and add `@opentelemetry/resources` and `@opentelemetry/semantic-conventions` to `dependencies`.
-  - Fix the 5 implicit `any` parameter annotations in `TextRankService.ts` and `NlpService.ts`.
 
 ---
 
